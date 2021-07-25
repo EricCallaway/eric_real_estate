@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <!--Search View for Real Estate Module-->
+    <!--Search View for Estate Property Model-->
     <record id="estate_property_search_view" model="ir.ui.view">
         <field name="name">estate.property.search</field>
         <field name="model">estate.property</field>
@@ -23,7 +23,7 @@
         </field>
     </record>
 
-    <!--Form view for the Real Estate Module-->
+    <!--Form view for the Estate Property Model-->
     <record id="estate_property_form_view" model="ir.ui.view">
             <field name="name">estate.property.form</field>
             <field name="model">estate.property</field>
@@ -35,10 +35,12 @@
                                 <field name="name"/>
                             </h1>
                         </div>
+                        <field name="tag_ids" widget="many2many_tags"/>
                         <group>
                             <group> 
                                 <field name="postcode"/>
                                 <field name="date_availability"/>
+                                <field name="property_type_id"/>
                             </group>
                             <group>
                                 <field name="expected_price"/>
@@ -59,6 +61,12 @@
                                     <field name="garden_orientation"/>
                                 </group>
                             </page>
+                            <page string="Other Information">
+                                <group>
+                                    <field name="buyer_id"/>
+                                    <field name="sales_person_id"/>
+                                </group>
+                            </page>
                         </notebook>
                     </sheet>
                 </form>
@@ -66,7 +74,7 @@
         </record>
 
 
-    <!--Tree view for the Real Estate Module-->
+    <!--Tree view for the Estate Property Model-->
     <record id="estate_property_tree_view" model="ir.ui.view">
             <field name="name">estate.property.tree</field>
             <field name="model">estate.property</field>
@@ -75,6 +83,7 @@
                     <field name="name"/>
                     <field name="postcode"/>
                     <field name="bedrooms"/>
+                    <field name="property_type_id"/>
                     <field name="living_area"/>
                     <field name="expected_price"/>
                     <field name="selling_price"/>
@@ -83,7 +92,7 @@
             </field>
         </record>
 
-    <!--Action for the Real Estate menu-->
+    <!--Action for the Estate Property Model-->
     <record id="action_estate_property" model="ir.actions.act_window">
             <field name="name">Real Estate Property Action</field>
             <field name="type">ir.actions.act_window</field>
